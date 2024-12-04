@@ -1,0 +1,19 @@
+.background {
+    background: linear-gradient(.90turn, rgb(95, 0, 95), 60%, #0000e7);
+}
+
+.plan-checkbox {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 5px;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 2px solid gray;
+    cursor: pointer;
+}
+
+.plan-checkbox:checked {
+    border: 2px, rgb(9, 0, 58), solid;
+    background-color: #0000e7;
+}

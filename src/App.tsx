@@ -54,8 +54,8 @@ function App() {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-blue-900">
-      <div className="border rounded-md min-h-10 w-full sm:w-2/3 bg-white pb-4">
+    <div className="flex justify-center pt-24 h-screen background">
+      <div className="border rounded-md h-fit min-w-96 w-full sm:w-2/3 lg:w-1/2 bg-white pb-4">
         <h1 className="text-4xl font-bold p-5 text-blue-900">To-Do List</h1>
         <form className="flex flex-grow mx-5 pl-3 rounded-full bg-gray-200 justify-center " onSubmit={handleSubmit}>
           <input
@@ -65,14 +65,18 @@ function App() {
             value={item.text}
             onChange={(e) => setItem({ ...item, text: e.target.value })}
           />
-          <button type="submit" className="border border-transparent rounded-full py-2 px-8 bg-orange-500 text-white">Add</button>
+          <button type="submit" className="border border-transparent rounded-full w-1/3 py-2 bg-orange-500 text-white">Add</button>
         </form>
         <ul className='mx-6 mt-4'>
           {list.map(item =>
             <li key={item.id} className='flex justify-between'>
-              <div className='flex gap-1'>
-                <input type='checkbox' checked={item.completed} onChange={() => handleClick(item)} />
-                <label>{item.completed ? <span className='line-through text-gray-500'>{item.text}</span> : <span>{item.text}</span>}</label>
+              <div className='flex'>
+                <input
+                  type='checkbox'
+                  className='plan-checkbox self-center'
+                  checked={item.completed}
+                  onChange={() => handleClick(item)} />
+                <label className='text-lg'>{item.completed ? <span className='line-through text-gray-500'>{item.text}</span> : <span>{item.text}</span>}</label>
               </div>
               <button onClick={() => handleDelete(item.id)}>X</button>
             </li>
